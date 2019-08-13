@@ -1,5 +1,16 @@
-<h1>Pages#home</h1>
-<p>Bienvenue sur Coup de pouce !</p>
+<div class="banner">
+<h1 class="cdp">Coup de pouce !</h1>
+<img src="" alt="">
+</div>
+
+<% if current_user != nil %>
+  <p><%= link_to 'Déposer', dashboard_path %></p>
+  <p><%= link_to 'Rechercher', dashboard_path %></p>
+<% else %>
+  <p><%= link_to 'Déposer', new_user_registration_path %></p>
+  <p><%= link_to 'Rechercher', new_user_registration_path %></p>
+<% end %>
+
 
 <% if current_user != nil %>
   <p><%= current_user.first_name %>, you are log in.</p>
@@ -8,5 +19,4 @@
   <p><%= link_to 'Sign up', new_user_registration_path %></p>
   <p><%= link_to 'Log in', new_user_session_path %></p>
 <% end %>
-
 
