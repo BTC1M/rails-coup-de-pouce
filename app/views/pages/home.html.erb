@@ -3,6 +3,7 @@
     <h1 text-align>coup <br>
       de <br>
     pouce</h1>
+    <img src="" alt="">
   </div>
 </div>
 
@@ -20,8 +21,43 @@
 <% if current_user != nil %>
   <p><%= current_user.first_name %>, you are log in.</p>
   <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p><%= link_to 'Mon dashboard', dashboard_path %></p>
 <% else %>
   <p><%= link_to 'Sign up', new_user_registration_path %></p>
   <p><%= link_to 'Log in', new_user_session_path %></p>
 <% end %>
 
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first name" }%>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last name" }%>
+    <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
+                end_year: Date.today.year - 1,
+                order: [:year, :month, :day] %>
+    <%#= f.input :birthday,
+                required: true,
+                input_html: { autocomplete: "birth date" }%>
+    <%= f.input :email,
+                required: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class:'btn btn-primary' %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>
