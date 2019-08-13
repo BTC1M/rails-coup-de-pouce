@@ -1,6 +1,16 @@
 <h1> <%= @mission.title %></h1>
 <ul><%#@mission.description.each do |mission|%>
-  <li><%= @mission.description %>
+  <li> description: <%= @mission.description %>
+    <p> categorie: <%=@mission.category  %></p>
+    <p>prix: <%=@mission.reward %>€</p>
+    <p> Besoins :<%=@mission.number_of_participants%> personne </p>
+    <p>adresse <%=@mission.place  %></p>
+    <p>from <%=@mission.start_date %> to <%=@mission.end_date%></p>
+
+
+
+
+
   </li>
 <%#end %>
 
