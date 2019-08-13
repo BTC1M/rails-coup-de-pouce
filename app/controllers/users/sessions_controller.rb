@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
 
    # This method tell sessions#create method to redirect to home#index when login fails.
    def auth_options
-      { scope: resource_name, recall: 'home#index' }
+      { scope: resource_name, recall: 'pages#home' }
    end
 
 end
