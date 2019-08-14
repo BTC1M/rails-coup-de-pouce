@@ -1,6 +1,6 @@
 <h1> Détail de la mission </h1>
 
-<div class="card border-danger mb-3" style="width: 18rem;">
+<div class="card border-danger mb-3 ml-3" style="width: 18rem;">
   <div class="card-body text-danger">
     <h5 class="card-title"><%= @mission.title %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%=@mission.category  %></h6>
@@ -18,10 +18,14 @@
   </div>
 </div>
 
-<div class="container">
-  <% @mission.number_of_participants.times do %>
-    <div class="card">
-
+<div class="cards d-flex col-4">
+  <%# @mission.number_of_participants.times do %>
+  <% 3.times do %>
+    <div class="card cards-participations mr-2 d-flex flex-column" style="width: 18rem;">
+      <div class="border-avatar mx-auto mt-3 p-1">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-very-large text-center avatar-bordered", alt: "avatar-very-large" %>
+      </div>
+      <p class="mx-auto">nom</p>
     </div>
   <% end %>
 </div>
