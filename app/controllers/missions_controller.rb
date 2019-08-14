@@ -2,7 +2,16 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
 
   def index
-    @missions = Mission.all
+    @missions = Mission.geocoded # returns missions with coordinates
+
+    @markers = @missions.map do |mission|
+      {
+        lat: mission.latitude,
+        lng: mission.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { mission: mission }),
+        image_url: helpers.asset_url('pouce-bleu.png')
+      }
+    end
   end
 
   def show
