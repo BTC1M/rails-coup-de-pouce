@@ -1,2 +1,13 @@
-<h1>dashbord page</h1>
-<%= link_to 'Voir toutes les missions', missions_path %>
+<div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
+  <div class="container d-flex">
+
+    <div class="form text-center mt-2">
+    </div>
+  </div>
+</div>
+
+<p> <%= link_to 'Voir toutes les missions', missions_path %></p>
+<div class="my_missions">
+  <% current_user.missions.each do |mission| %>
+  <%= mission.title %>
+<% end %></div>

@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @missions = Mission.all
   end
 end
