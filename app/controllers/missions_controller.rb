@@ -31,19 +31,20 @@ class MissionsController < ApplicationController
   end
 end
 
-#def edit
- #end
-  #def update
-    #if @mission.update(mission_params)
-      #redirect_to @mission, notice: 'Mission was successfully updated.'
-    #else
-      #render :edit
-    #end
-  #end
-  #def destroy
-    #@mission.destroy
-    #redirect_to missions_url, notice: 'Mission was successfully destroyed.'
-  #end
+def edit; end
+
+def update
+  if @mission.update(mission_params)
+    redirect_to @mission, notice: 'Mission was successfully updated.'
+  else
+    render :edit
+  end
+end
+
+def destroy
+  @mission.destroy
+  redirect_to missions_url, notice: 'Mission was successfully destroyed.'
+end
 
 private
 
@@ -52,5 +53,4 @@ private
   end
   def set_mission
     @mission = Mission.find(params[:id])
-
 end
