@@ -1,6 +1,6 @@
-<div class="header", style="background-image: linear-gradient(90deg, rgba(147, 105, 137, 0.63) 0%, rgba(193, 91, 220, 0.296875) 41.61%, rgba(5, 0, 255, 0.37) 79.9%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
+<div class="header", style="background-image: linear-gradient(90deg, rgba(241, 191, 78, 0.35) 0%, rgba(241, 102, 71, 0.35) 41.61%, rgba(189, 50, 62, 0.59) 79.9%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
   <div class="container d-flex">
-    <h1 text-align>coup <br>
+    <h1>coup <br>
       de <br>
     pouce</h1>
     <div class="form text-center mt-2">
@@ -12,12 +12,14 @@
 </div>
 
 <% if current_user != nil %>
-  <p><%= link_to 'Déposer', dashboard_path %></p>
-  <p><%= link_to 'Rechercher', dashboard_path %></p>
+  <button class='dps'><%= link_to 'Déposer', dashboard_path %></button>
+  <button class='rcc'><%= link_to 'Rechercher', dashboard_path %></button>
   <p><%= current_user.first_name %>, you are log in.</p>
   <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %> or go to <%= link_to "your dashboard", dashboard_path %></p>
 <% else %>
-  <p><%= link_to 'Déposer', new_user_registration_path %></p>
-  <p><%= link_to 'Rechercher', new_user_registration_path %></p>
+  <button class='dps'><%= link_to 'Déposer', new_user_registration_path %></button>
+  <button class='rcc'><%= link_to 'Rechercher', new_user_registration_path %></button>
+  <div class="form-for-inscription">
   <%= render "devise/registrations/new" %>
+  </div>
 <% end %>
