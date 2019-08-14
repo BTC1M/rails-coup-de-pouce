@@ -116,8 +116,22 @@ Participation.create!(
 )
 
 Participation.create!(
+  mission: Mission.first(2).last,
+  user: User.first(3).last
+)
+Participation.create!(
+  mission: Mission.first(2).last,
+  user: User.first(2).last
+)
+
+Participation.create!(
   mission: Mission.first(1).last,
   user: User.first(1).last
+)
+
+Participation.create!(
+  mission: Mission.first(1).last,
+  user: User.first(3).last
 )
 
 Participation.create!(
@@ -126,11 +140,45 @@ Participation.create!(
 )
 
 Participation.create!(
+  mission: Mission.first(3).last,
+  user: User.first(5).last
+)
+
+Participation.create!(
+  mission: Mission.first(3).last,
+  user: User.first(4).last
+)
+
+Participation.create!(
+  mission: Mission.first(3).last,
+  user: User.first(3).last
+)
+
+
+Participation.create!(
   mission: Mission.first(4).last,
   user: User.first(3).last
+)
+
+Participation.create!(
+  mission: Mission.first(4).last,
+  user: User.first(2).last
+)
+
+
+Participation.create!(
+  mission: Mission.first(4).last,
+  user: User.first(1).last
 )
 
 Participation.create!(
   mission: Mission.first(5).last,
   user: User.first(4).last
 )
+
+Participation.create!(
+  mission: Mission.first(5).last,
+  user: User.first(1).last
+)
+
+puts 'Finished!'
