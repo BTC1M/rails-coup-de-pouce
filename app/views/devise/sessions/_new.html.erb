@@ -1,6 +1,6 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs align-middle my-3">
-    <div class="d-flex mb-2">
+    <div class="d-flex mb-2 flex-wrap">
       <div class="email mr-1">
         <%= f.input :email,
                     required: false,
@@ -20,7 +20,7 @@
         <%= f.button :submit, "Log in", class:'btn btn-primary' %>
       </div>
     </div>
-    <div class="d-flex justify-content-center mt-2">
+    <div class="d-flex flex-wrap justify-content-center mt-2">
       <div class="remember mr-2 align-self-center px-2 py-1">
         <%= f.input :remember_me, class: 'me', as: :boolean if devise_mapping.rememberable? %>
       </div>
