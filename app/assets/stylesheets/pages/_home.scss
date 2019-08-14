@@ -1,4 +1,24 @@
 .body{
   margin-top: 0;
 }
+
+.btn-light{
+  background-color: transparent;
+  color: #DCDCDC !important;
+  &:hover{
+    opacity: 0.5;
+    text-decoration: none;
+    color: black !important;;
+  }
+}
+
+.form-group{
+    margin-bottom: 0;
+}
+
+.remember{
+  color: #DCDCDC !important;
+}
+
+
 // Specific CSS for your home-page
