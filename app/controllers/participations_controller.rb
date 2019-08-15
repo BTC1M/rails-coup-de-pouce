@@ -32,7 +32,6 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation = Participation.find(params[:id])
     @participation.destroy
-    redirect_to @participation.mission, notice: 'Participation was successfully destroyed.'
     redirect_to dashboard_path, notice: 'Participation was successfully destroyed.'
   end
 
