@@ -7,9 +7,20 @@
       <div id="content">
         <h1 class="titre_cdp_dash align-items-center">COUP DE POUCE</h1>
       </div>
-      <div class="border_avatar_nav p-1 align-items-center">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-very-large avatar-bordered", alt: "avatar-very-large" %>
+      <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
+          <button class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Profile', dashboard_path, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Dashboard', dashboard_path, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Home', root_path, class: "dropdown-item"%>
+          </div>
       </div>
+
+
     <div class="form-ss text-center mt-2">
       <% if current_user == nil %>
         <%= render "devise/sessions/new" %>
