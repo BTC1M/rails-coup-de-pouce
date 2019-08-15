@@ -1,30 +1,69 @@
-<div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
+
+
+<!-- <div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
   <div class="container d-flex">
     <div class="form text-center mt-2">
     </div>
-  </div>
-</div>
-
-<h1>Nouvelle mission</h1>
-
+  </div -->
+<!-- </div>
+ -->
+ <div class="bodynew">
+ <div class="topFixedBar"><p class="logo"> <%= image_tag "logoCOLO2.png"%> </p></div>
 <%= simple_form_for(@mission) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :category %>
-    <%= f.input :description %>
-    <%= f.input :reward %>
-    <%= f.input :place %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :number_of_participants %>
+  <div class='container-new-mission d-flex flex-column col-6' style='max-width:380px;margin:auto;'>
+    <div class="back-new-mission">
+    <p class="text-new-mission"> <strong><%= "Nouvelle mission"  %></strong></p>
+  <div class="form-new-mission">
+    
+    <div class="mb-3">
+    <%= f.input :title,
+            label: false,
+            placeholder: "nom" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :category,
+            label: false,
+            placeholder: "categorie" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :description,
+            label: false,
+            placeholder: "description" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :reward,
+            label: false,
+            placeholder: "prix" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :place,
+            label: false,
+            placeholder: "place" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :start_date,
+            label: "date de debut" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :end_date,
+            label: "date de fin" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :number_of_participants,
+            label: false,
+            placeholder: "number of participants" %>
+    </div>
   </div>
-
-  <div class="form-actions btn btn-primary mt-2">
-    <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-new-mission btn-block" %>
   </div>
+</div>
+  <!-- <div class="form-actions d-flex col-6" style='margin:auto;'>
+    <%= f.button :submit, class: "btn btn-new-mission" %>
+  </div> -->
 <% end %>
 
-<%= link_to 'Retour sur dashboard', dashboard_path, class: "btn btn-secondary mt-3" %>
+<%= link_to 'Retour sur dashboard', dashboard_path, class: "btn-dashboard color mt-3" %>
+</div>
