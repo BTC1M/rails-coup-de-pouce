@@ -13,8 +13,9 @@
 </div>
 
 <% if current_user != nil %>
-  <button class='dps'><%= link_to 'Déposer', dashboard_path %></button>
-  <button class='rcc'><%= link_to 'Rechercher', dashboard_path %></button>
+  <%#= link_to 'Déposer', dashboard_path , class: "dps" %>
+  <button class='dps'><%= link_to 'Déposer', new_mission_path %></button>
+  <button class='rcc'><%= link_to 'Rechercher', missions_path %></button>
   <p><%= current_user.first_name %>, you are log in.</p>
   <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %> or go to <%= link_to "your dashboard", dashboard_path %></p>
 <% else %>
