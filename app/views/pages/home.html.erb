@@ -1,9 +1,10 @@
 <div class="header", style="background-image: linear-gradient(90deg, rgba(241, 191, 78, 0.35) 0%, rgba(241, 102, 71, 0.35) 41.61%, rgba(189, 50, 62, 0.59) 79.9%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
-  <div class="container d-flex">
-    <h1>coup <br>
-      de <br>
-    pouce</h1>
-    <div class="form text-center mt-2">
+  <div class="container">
+    <div id="content">
+      <h1 class="titre-cdp">COUP DE POUCE</h1>
+      <p class="logo"><%= image_tag "logoCOLO2.png", :size => "120x80"%></p>
+    </div>
+    <div class="form-ss text-center mt-2">
       <% if current_user == nil %>
         <%= render "devise/sessions/new" %>
       <% end %>
@@ -19,7 +20,21 @@
 <% else %>
   <button class='dps'><%= link_to 'Déposer', new_user_registration_path %></button>
   <button class='rcc'><%= link_to 'Rechercher', new_user_registration_path %></button>
-  <div class="form-for-inscription">
+  <div class="form-for-inscription mt-4">
   <%= render "devise/registrations/new" %>
+  </div>
+  <div class="row">
+  <div class="column">
+  <div class="d-flex flex-wrap mt-5">
+    <div class="deposing d-flex flex-column text-center">
+      <h2 class="text-muted"><strong>  DÉPOSEZ <br> UNE <br> MISSION</strong></h2>
+      <p class="img-deposting"><%= image_tag "deposting.png", :size => "350x270"%></p>
+    </div>
+    <div class="searching d-flex flex-column text-center ">
+      <h2 class="text-muted"><strong>RECHERCHEZ <br> UNE <br> MISSION</strong></h2>
+      <p class="img-searching"><%= image_tag "searching.png", :size => "350x270"%></p>
+    </div>
+  </div>
+</div>
   </div>
 <% end %>
