@@ -5,13 +5,22 @@
   </div>
 </div>
 
+<button class='dps'><%= link_to 'Déposer', new_mission_path %></button>
+<button class='rcc'><%= link_to 'Rechercher', missions_path %></button>
+
 <h3 class="mt-2">En cours</h3>
 <div class="my_missions">
   <p><strong>Missions créées :</strong></p>
   <ul>
     <% current_user.missions.each do |mission| %>
       <li>
-        <%= mission.title %>
+        <%= link_to mission.title, mission_path(mission.id) %>
+        <%= link_to(mission_path(mission.id)) do %>
+          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
+        <% end %>
+        <%= link_to(edit_mission_path(mission.id)) do %>
+          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-edit'></i>
+        <% end %>
         <%= link_to(mission_path(mission.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
           <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
         <% end %>
@@ -25,7 +34,10 @@
   <ul>
     <% current_user.participations.each do |participation| %>
       <li>
-        <%= participation.mission.title %>
+        <%= link_to participation.mission.title, mission_path(participation.mission.id) %>
+        <%= link_to(mission_path(participation.mission.id)) do %>
+          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
+        <% end %>
         <%= link_to(mission_participation_path(participation.mission.id, participation.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
           <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
         <% end %>
@@ -34,10 +46,10 @@
   </ul>
 </div>
 
-<%= link_to 'Rechercher une mission', missions_path, class: "btn btn-primary" %>
-<%= link_to 'Déposer une mission', new_mission_path, class: "btn btn-success" %>
+<%#= link_to 'Rechercher une mission', missions_path, class: "btn btn-primary" %>
+<%#= link_to 'Déposer une mission', new_mission_path, class: "btn btn-success" %>
 
 <!-- Ajouter l'historique... -->
 <h3 class="mt-5">Terminé</h3>
 <p><strong>Missions créees : ...</strong></p>
-<p><strong>Participations effectuées : ...</strong></p>
+<p class="mt-3"><strong>Participations : ...</strong></p>
