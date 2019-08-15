@@ -1,12 +1,12 @@
-<div class="login shadow p-3 mb-5 bg-white">
+<div class="login shadow mb-5 bg-white">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs d-flex flex-column">
     <div class="inscrire mb-3 text-center justify-content-center">
-      <p>s'inscrire</p>
+      <strong><p class="titre-inscription">INSCRIPTION</p></strong>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mx-3">
       <%= f.input :first_name,
                   required: true,
                   autofocus: true,
@@ -14,28 +14,28 @@
                   label: false,
                   placeholder: "first name" %>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mx-3">
       <%= f.input :last_name,
                   required: true,
                   input_html: { autocomplete: "last name" },
                   label: false,
                   placeholder: "last name"%>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mx-3">
       <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
                   end_year: Date.today.year - 1,
                   order: [:year, :month, :day],
                   required: true,
                   label: false %>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mx-3">
     <%= f.input :email,
                 required: true,
                 input_html: { autocomplete: "email" },
                 label: false,
                 placeholder: "email"%>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mx-3">
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -43,7 +43,7 @@
                   label: false,
                   placeholder: "password" %>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mx-3">
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" },
@@ -51,8 +51,6 @@
                   placeholder: "password_confirmation" %>
     </div>
   </div>
-    <div class="form-actions  mb-2">
-      <%= f.button :submit, "S'enregistrer", class:'btn btn-primary' %>
-    </div>
+      <%= f.button :submit, "S'ENREGISTRER", class:'bouton-registration btn-block rounded-pill'%>
 <% end %>
 </div>
