@@ -25,15 +25,14 @@ class ParticipationsController < ApplicationController
       end
     else
       flash[:alert] = 'ERREUR : Nombre max de participants atteint.'
-      redirect_to mission_path(@participation.mission.id)
-      # , alert: 'ERREUR : Nombre max de participants atteint.'
+      redirect_to mission_path(@participation.mission.id)#, alert: 'ERREUR : Nombre max de participants atteint.'
     end
   end
 
   def destroy
     @participation = Participation.find(params[:id])
     @participation.destroy
-    # redirect_to @participation.mission, notice: 'Participation was successfully destroyed.'
+    redirect_to @participation.mission, notice: 'Participation was successfully destroyed.'
     redirect_to dashboard_path, notice: 'Participation was successfully destroyed.'
   end
 

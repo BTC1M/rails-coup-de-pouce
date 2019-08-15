@@ -1,8 +1,31 @@
-<div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
-  <div class="container d-flex">
-    <div class="form text-center mt-2">
+<div class="header_dash d-flex justify-content-between px-4 align-items-center", style="background-image: linear-gradient(90deg, rgba(241, 191, 78, 0.35) 0%, rgba(241, 102, 71, 0.35) 41.61%, rgba(189, 50, 62, 0.59) 79.9%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
+      <div>
+        <%= link_to(dashboard_path) do %>
+          <p class="logo_dash text-center"><%= image_tag "logoCOLO2.png", :size => "120x80"%></p>
+        <% end %>
+      </div>
+      <div id="content">
+        <h1 class="titre_cdp_dash align-items-center">COUP DE POUCE</h1>
+      </div>
+      <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
+          <button class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Profile', dashboard_path, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Dashboard', dashboard_path, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Home', root_path, class: "dropdown-item"%>
+          </div>
+      </div>
+
+
+    <div class="form-ss text-center mt-2">
+      <% if current_user == nil %>
+        <%= render "devise/sessions/new" %>
+      <% end %>
     </div>
-  </div>
 </div>
 <div class="d-flex">
 
@@ -60,4 +83,5 @@
   </div>
   <%# end %>
 </div>
-  <p class="mt-3 ml-3"><%= link_to "Retour sur dashboard",  dashboard_path, class: "btn btn-outline-secondary"%></p>
+ <p class="mt-3 ml-3"><%= link_to "Retour sur dashboard",  dashboard_path, class: "btn btn-outline-secondary"%></p>
+
