@@ -1,23 +1,38 @@
-<div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
-  <div class="container d-flex">
-    <div class="form text-center mt-2">
+<div class="header", style="background-image: linear-gradient(90deg, rgba(241, 191, 78, 0.35) 0%, rgba(241, 102, 71, 0.35) 41.61%, rgba(189, 50, 62, 0.59) 79.9%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
+  <div class="container">
+    <div id="content">
+      <%= link_to "dashboard", dashboard_path, class: "btn btn-secondary" %>
+      <h1 class="titre-cdp">COUP DE POUCE</h1>
+      <p class="logo"><%= image_tag "logoCOLO2.png", :size => "120x80"%></p>
     </div>
   </div>
 </div>
 
-<div class="container">
+
+<div class="container attributes_container" >
   <div class='row'>
-    <div class='col-6'>
+    <div class='col-4'>
+      <div id="" style="overflow:scroll; height:100%; width:540px">
       <% @missions.each do |mission| %>
-        <div class="card-product">
+        <div class="card-product ">
           <div class="card-product-infos">
-            <h2><%= link_to mission.title, mission_path(mission) %></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <div class="flex">
+              <h2><%= link_to mission.title, mission_path(mission) %></h2>
+              <span class="badge badge-category"> <%=mission.category %> </span>
+            </div>
+            <p><%= mission.description %></p>
+            <div class="d-flex">
+            <h2> </h2>
+            <h2><strong><%= mission.reward%>€</strong></h2>
+          </div>
           </div>
         </div>
       <% end %>
     </div>
-    <div class='col-6'>
+    </div>
+
+
+    <div class='col-8'>
       <div
         id="map"
         data-markers="<%= @markers.to_json %>"
@@ -27,3 +42,4 @@
   </div>
 </div>
 <%#= render 'form', mission: @mission %>
+
