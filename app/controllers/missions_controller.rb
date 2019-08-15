@@ -15,6 +15,7 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @nombre = @mission.number_of_participants - @mission.participations.count
   end
 
   def new

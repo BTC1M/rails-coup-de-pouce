@@ -1,23 +1,56 @@
-<h1>Editing Mission</h1>
-
+<div class="bodyedit">
+ <div class="topFixedBar"><p class="logo"> <%= image_tag "logoCOLO2.png"%> </p></div>
 <%= simple_form_for(@mission) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :category %>
-    <%= f.input :description %>
-    <%= f.input :description %>
-    <%= f.input :reward %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :number_of_participants %>
+ <div class='container-new-mission d-flex flex-column col-6' style='max-width:380px;margin:auto;'>
+    <div class="back-new-mission">
+    <p class="text-new-mission"> <strong><%= "Modifier mission"  %></strong></p>
+  <div class="form-new-mission">
+    
+    <div class="mb-3">
+    <%= f.input :title,
+            label: false,
+            placeholder: "nom" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :category,
+            label: false,
+            placeholder: "categorie" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :description,
+            label: false,
+            placeholder: "description" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :reward,
+            label: false,
+            placeholder: "prix" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :place,
+            label: false,
+            placeholder: "place" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :start_date,
+            label: "date de debut" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :end_date,
+            label: "date de fin" %>
+    </div>
+    <div class="mb-2">
+    <%= f.input :number_of_participants,
+            label: false,
+            placeholder: "number of participants" %>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <%= f.button :submit, class: "btn btn-new-mission btn-block"  %>
 
-<%= link_to 'Back', mission_path(@mission) %>
+<%= link_to 'Retour', dashboard_path, class: "btn-edit color mt-3" %><% end %>
+</div>
