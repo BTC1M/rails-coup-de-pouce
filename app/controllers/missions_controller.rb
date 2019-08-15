@@ -31,7 +31,6 @@ class MissionsController < ApplicationController
       render :new
     end
   end
-end
 
 def edit; end
 
@@ -45,7 +44,7 @@ end
 
 def destroy
   @mission.destroy
-  redirect_to dashbord_path, notice: 'Mission was successfully destroyed.'
+  redirect_to dashboard_path, notice: 'Mission was successfully destroyed.'
 end
 
 private
@@ -55,4 +54,5 @@ private
   end
   def set_mission
     @mission = Mission.find(params[:id])
+  end
 end
