@@ -36,3 +36,59 @@
 	border-radius: 8px;
 	border: none;
 }
+
+
+.btn-new-mission {
+text-align: center;
+width: 100%;
+background: #EEBE58;
+border-radius: 5px;
+font-weight: 600;
+font-size: 22px;
+line-height: 36px;
+color: white;
+transition: 0.8s;
+opacity: 0.9;
+text-decoration: none;
+color: white;
+margin: auto;
+top: 100px;
+}
+
+.btn-new-mission:hover {
+  padding: 10px;
+  transition: 0.5s;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  opacity: 1;
+  font-size: 25px;
+  color: white;
+  text-shadow: 3px 4px 5px rgba(0, 0, 0, 0.35);
+}
+
+
+.btn-dashboard {
+	position:relative;
+	bottom: -40px;
+	left: 40px;
+	background-color: #858585;
+	border-radius: 12px;
+	opacity: 0.5;
+	color: white;
+	transition: 1s;
+	padding: 10px;
+	font-size: 14px;
+	&:hover {
+		transition: 0.4s;
+		opacity: 0.8;
+		color: white;
+		font-size: 18px;
+		box-shadow: -5px 5px 8px #CD1351;
+		border-radius: 16px;
+		text-decoration: none;
+		font-size: 16px;
+	}
+
+}
+
+
