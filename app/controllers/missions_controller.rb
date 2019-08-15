@@ -23,8 +23,9 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+    @mission.user = current_user
     if @mission.save
-      redirect_to @mission, notice:"mission was successfully created"
+      redirect_to @mission, notice: "Mission was successfully created"
     else
       render :new
     end
@@ -43,7 +44,7 @@ end
 
 def destroy
   @mission.destroy
-  redirect_to missions_url, notice: 'Mission was successfully destroyed.'
+  redirect_to dashbord_path, notice: 'Mission was successfully destroyed.'
 end
 
 private

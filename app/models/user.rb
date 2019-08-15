@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :missions
   has_many :participations
+  has_many :missions, through: :participations
 
   validates :first_name, uniqueness: { scope: :last_name }
   validates :birthday, presence: true

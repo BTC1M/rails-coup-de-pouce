@@ -1,3 +1,11 @@
+<div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
+  <div class="container d-flex">
+
+    <div class="form text-center mt-2">
+    </div>
+  </div>
+</div>
+
 <h1> Détail de la mission </h1>
 
 <div class="card border-primary mb-3 ml-3" style="width: 18rem;">
@@ -31,5 +39,7 @@
   <% end %>
 </div>
 
-<%= link_to "<< Retour",  missions_path, class: "btn btn-outline-secondary mt-4"%>
+<p><%= link_to "Rejoindre!", mission_participations_path(@mission), method: :create, class: "btn btn-primary mt-4"%></p>
+
+<p class="mt-2"><%= link_to "Retour sur dashboard",  dashboard_path, class: "btn btn-outline-secondary"%></p>
 

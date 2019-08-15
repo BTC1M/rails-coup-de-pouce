@@ -1,31 +1,31 @@
 class ParticipationsController < ApplicationController
-  # def new
-  #   @cocktail = Cocktail.find(params[:cocktail_id])
-  #   # @ingredient = Ingredient.find(params[:ingredient_id])
-  #   @dose = Dose.new
-  # end
+  def new
+    @mission = Mission.find(params[:mission_id])
+    @participation = Participation.new
+  end
 
-  # def create
-  #   @dose = Dose.new(dose_params)
-  #   @cocktail = Cocktail.find(params[:cocktail_id])
-  #   @dose.cocktail = @cocktail
-  #   # @dose.ingredient = Ingredient.find(params[:ingredient_id])
-  #   if @dose.save
-  #     redirect_to cocktail_path(@dose.cocktail.id), notice: 'Dose was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @participation = Participation.new(participation_params)
+    @mission = Mission.find(params[:mission_id])
+    @participation.mission = @mission
+    @participation.user = current_user
+    if @participation.save
+      redirect_to mission_path(@participation.mission.id), notice: 'Participation was successfully created.'
+    else
+      render :new
+    end
+  end
 
-  # def destroy
-  #   @dose = Dose.find(params[:id])
-  #   @dose.destroy
-  #   redirect_to @dose.cocktail, notice: 'Dose was successfully destroyed.'
-  # end
+  def destroy
+    @participation = Participation.find(params[:id])
+    @participation.destroy
+    # redirect_to @participation.mission, notice: 'Participation was successfully destroyed.'
+    redirect_to dashbord_path, notice: 'Participation was successfully destroyed.'
+  end
 
-  # private
+  private
 
-  # def dose_params
-  #   params.require(:dose).permit(:description, :ingredient_id)
-  # end
+  def participation_params
+    params.require(:participation).permit(:user_id, :mission_id)
+  end
 end
