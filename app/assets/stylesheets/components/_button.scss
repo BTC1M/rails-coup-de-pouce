@@ -92,3 +92,27 @@ top: 100px;
 }
 
 
+.btn-edit {
+
+	position:fixed;
+	left: 45px;
+	bottom: 45px;
+	background-color: #858585;
+	border-radius: 12px;
+	opacity: 0.5;
+	color: white;
+	transition: 1s;
+	padding: 10px;
+	font-size: 14px;
+	&:hover {
+		transition: 0.4s;
+		opacity: 0.8;
+		color: white;
+		font-size: 18px;
+		box-shadow: -5px 5px 8px #CD1351;
+		border-radius: 16px;
+		text-decoration: none;
+		font-size: 16px;
+	}
+
+}
