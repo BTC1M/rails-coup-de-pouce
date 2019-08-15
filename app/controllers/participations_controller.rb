@@ -9,10 +9,24 @@ class ParticipationsController < ApplicationController
     @mission = Mission.find(params[:mission_id])
     @participation.mission = @mission
     @participation.user = current_user
-    if @participation.save
-      redirect_to mission_path(@participation.mission.id), notice: 'Participation was successfully created.'
+
+    if @mission.number_of_participants > @mission.participations.count
+      condition = true
     else
-      render :new
+      condition = false
+    end
+    @condition = condition
+
+    if @condition == true
+      if @participation.save
+        redirect_to mission_path(@participation.mission.id), notice: 'Participation was successfully created.'
+      else
+        render :new
+      end
+    else
+      flash[:alert] = 'ERREUR : Nombre max de participants atteint.'
+      redirect_to mission_path(@participation.mission.id)
+      # , alert: 'ERREUR : Nombre max de participants atteint.'
     end
   end
 
