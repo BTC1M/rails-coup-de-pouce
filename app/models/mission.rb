@@ -3,7 +3,7 @@ class Mission < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_place?
 
   belongs_to :user
-  has_many :participations
+  has_many :participations, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true

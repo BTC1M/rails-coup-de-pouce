@@ -1,34 +1,29 @@
-<div class="header">
+<div class="header", style="background-image: linear-gradient(270.9deg, rgba(189, 50, 62, 0.19) 40.6%, rgba(238, 190, 88, 0.14) 71.3%), url(<%= asset_path('undraw_co-workers_ujs6.svg') %>);">
   <div class="container d-flex">
-    <h1> coup <br>
-      de <br>
-    pouce</h1>
+    <div class="form text-center mt-2">
+    </div>
   </div>
 </div>
 
-
-        <div class='row'>
-          <div class='col-6'>
-            <% @missions.each do |mission| %>
-             <ul>
-              <div class="card-product">
-                <div class="card-product-infos">
-                <h2><%= link_to mission.title, mission_path(mission) %></h2>
-                <p>Product description with <strong>relevant info</strong> only.</p>
-                </div>
-              </div>
-             </ul>
-            <% end %>
-          </div>
-
-          <div class='col-6'>
-            <div
-              id="map"
-              data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-            ></div>
+<div class="container">
+  <div class='row'>
+    <div class='col-6'>
+      <% @missions.each do |mission| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2><%= link_to mission.title, mission_path(mission) %></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
           </div>
         </div>
+      <% end %>
+    </div>
+    <div class='col-6'>
+      <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+    </div>
+  </div>
 </div>
-
 <%#= render 'form', mission: @mission %>

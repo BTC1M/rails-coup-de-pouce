@@ -5,7 +5,7 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @participation = Participation.new(participation_params)
+    @participation = Participation.new
     @mission = Mission.find(params[:mission_id])
     @participation.mission = @mission
     @participation.user = current_user
@@ -20,7 +20,7 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     @participation.destroy
     # redirect_to @participation.mission, notice: 'Participation was successfully destroyed.'
-    redirect_to dashbord_path, notice: 'Participation was successfully destroyed.'
+    redirect_to dashboard_path, notice: 'Participation was successfully destroyed.'
   end
 
   private

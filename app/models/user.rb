@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :participations
-  has_many :missions, through: :participations
+  has_many :missions
 
   validates :first_name, uniqueness: { scope: :last_name }
   validates :birthday, presence: true
