@@ -53,7 +53,7 @@ User.create!(
 Mission.create!(
   title: 'Cherche quelqu\'un pour déménagement',
   category: 'Adulte',
-  description: 'Il me faut un homme, et vite !!!',
+  description: 'Besoin de gros bras',
   reward: 200,
   place: '41 Rue Jobin, 13003 Marseille',
   start_date: DateTime.now,
@@ -65,7 +65,7 @@ Mission.create!(
 Mission.create!(
   title: 'Mon ordinateur est en panne, HELP',
   category: 'Equipements',
-  description: 'Wallah ca demarre pas',
+  description: 'Wallah ca marche pas',
   reward: 5,
   place: '109 Avenue de la Jarre, 13009 Marseille',
   start_date: DateTime.now - 5.day,
@@ -99,7 +99,7 @@ Mission.create!(
 )
 
 Mission.create!(
-  title: 'Garde de bébé',
+  title: 'Location de mon bébé',
   category: 'Animaux',
   description: 'J\'en ai marre il fait que pleurer',
   reward: 100,
