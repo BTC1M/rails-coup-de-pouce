@@ -77,6 +77,30 @@ Mission.create!(
 )
 
 Mission.create!(
+  title: 'Opération banane',
+  category: 'Brigade du style',
+  description: 'Enlever les bananes du Tshirt de Mathias.',
+  reward: 500,
+  place: '29 Boulevard Eugène Pierre, 13005 Marseille',
+  start_date: DateTime.now + 1.day,
+  end_date: DateTime.now + 1.day,
+  number_of_participants: 4,
+  user: User.find_by(first_name: 'Jojokido')
+)
+
+Mission.create!(
+  title: 'Opération swagage',
+  category: 'Brigade du style',
+  description: 'Acheter du style à Mavrock.',
+  reward: 400,
+  place: '28 Rue du Berceau, 13005 Marseille',
+  start_date: DateTime.now + 1.day,
+  end_date: DateTime.now + 1.day,
+  number_of_participants: 4,
+  user: User.find_by(first_name: 'Jojokido')
+)
+
+Mission.create!(
   title: 'Location de mon dumb baby',
   category: 'Animaux',
   description: 'Si vous voulez le calmer, une ptite patate de forain et le tour est joué.',
@@ -157,6 +181,36 @@ Mission.create!(
   start_date: DateTime.now - 2.day,
   end_date: DateTime.now + 2.day,
   number_of_participants: 2,
+  user: User.find_by(first_name: 'Rem')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Opération banane'),
+  user: User.find_by(first_name: 'Theo')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Opération banane'),
+  user: User.find_by(first_name: 'Mavrock')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Opération banane'),
+  user: User.find_by(first_name: 'Michael')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Opération swagage'),
+  user: User.find_by(first_name: 'Theo')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Opération swagage'),
+  user: User.find_by(first_name: 'Michael')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Opération swagage'),
   user: User.find_by(first_name: 'Rem')
 )
 
