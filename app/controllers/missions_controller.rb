@@ -1,5 +1,5 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  before_action :set_mission, only: [:edit, :update, :destroy]
 
   def index
     @missions = Mission.geocoded # returns missions with coordinates
@@ -15,7 +15,17 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @mission = Mission.find(params[:id])
     @nombre = @mission.number_of_participants - @mission.participations.count
+
+    @markers = [
+      {
+        lat: @mission.latitude,
+        lng: @mission.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission }),
+        image_url: helpers.asset_url('pouce-bleu.png')
+      }
+    ]
   end
 
   def new
