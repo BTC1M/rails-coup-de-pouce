@@ -1,76 +1,147 @@
 <div class="header_dash d-flex justify-content-between px-4 align-items-center", style="background-image: linear-gradient(360deg, rgba(15, 15, 15, 0.17) 16.33%, rgba(15, 15, 15, 0) 108.97%), url(<%= asset_path('operation.png') %>);">
-      <div>
-        <%= link_to(dashboard_path) do %>
-          <p class="logo_dash text-center"><%= image_tag "logoCOLO2.png", :size => "220x220"%></p>
-        <% end %>
-      </div>
-      <div id="content">
-        <h1 class="titre_cdp_dash align-items-center">COUP DE POUCE</h1>
-      </div>
-      <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
-          <button class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Dashboard', dashboard_path, class: "dropdown-item"%>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"%>
-          </div>
-      </div>
-
-
-    <div class="form-ss text-center mt-2">
-      <% if current_user == nil %>
-        <%= render "devise/sessions/new" %>
-      <% end %>
+  <div>
+    <%= link_to(dashboard_path) do %>
+    <p class="logo_dash text-center ml-5"><%= image_tag "logoCOLO2.png", :size => "100x70"%></p>
+    <% end %>
+  </div>
+  <div id="content">
+    <h1 class="titre_cdp_dash align-items-center">COUP DE POUCE</h1>
+  </div>
+  <div class="border_avatar_nav p-1 align-items-center dropleft m-4" style="height: 80px">
+    <button class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to 'Dashboard', dashboard_path, class: "dropdown-item"%>
+      <div class="dropdown-divider"></div>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"%>
     </div>
+  </div>
+  <div class="form-ss text-center mt-2">
+    <% if current_user == nil %>
+    <%= render "devise/sessions/new" %>
+    <% end %>
+  </div>
 </div>
-
 <button class='dps'><%= link_to 'Déposer', new_mission_path %></button>
 <button class='rcc'><%= link_to 'Rechercher', missions_path %></button>
+<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around">
+  <div class="row">
+    <div class="col col-md-auto">
+      <h3 class="m-3"><strong>En cours</strong></h3>
+      <div class="my_missions">
+        <div class="container attributes_container" >
+          <div id="" style="overflow:scroll; height:100%; width:540px">
+            <% current_user.missions.each do |mission| %>
+            <div class="card-product-dash ">
+              <div class="card-product-infos">
+                <div class="flex">
+                  <h2><%= link_to mission.title, mission_path(mission)%></h2>
+                  <span class="badge badge-category"> <%=mission.category %> </span>
+                </div>
+                <p><%= mission.description %></p>
+                <div class="d-flex">
+                  <h2> </h2>
+                  <h2><strong><%= mission.reward%>€</strong></h2>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- <h3 class="mt-2">En cours</h3>
+        <div class="my_missions">
+          <p><strong>Missions créées :</strong></p>
+          <ul>
+            <% current_user.missions.each do |mission| %>
+            <li>
+              <%= link_to mission.title, mission_path(mission.id) %>
+              <%= link_to(mission_path(mission.id)) do %>
+              <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
+              <% end %>
+              <%= link_to(edit_mission_path(mission.id)) do %>
+              <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-edit'></i>
+              <% end %>
+              <%= link_to(mission_path(mission.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+              <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div> -->
+        <div class="my_participations mt-3">
+          <h3 class="m-3"><font color="black"><strong>Participations à effectuer :</strong></font></h3>
+          <div class="container attributes_container" >
+            <div id="" style="overflow:scroll; height:100%; width:540px">
+              <% @missions.each do |mission| %>
+              <div class="card-product-dash ">
+                <div class="card-product-infos">
+                  <div class="flex">
+                    <h2><%= link_to mission.title, mission_path(mission)%></h2>
+                    <span class="badge badge-category"> <%=mission.category %> </span>
+                  </div>
+                  <p><%= mission.description %></p>
+                  <div class="d-flex">
+                    <h2> </h2>
+                    <h2><strong><%= mission.reward%>€</strong></h2>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-100"></div>
+  <div class="col">
 
-<h3 class="mt-2">En cours</h3>
-<div class="my_missions">
-  <p><strong>Missions créées :</strong></p>
-  <ul>
-    <% current_user.missions.each do |mission| %>
-      <li>
-        <%= link_to mission.title, mission_path(mission.id) %>
-        <%= link_to(mission_path(mission.id)) do %>
-          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
-        <% end %>
-        <%= link_to(edit_mission_path(mission.id)) do %>
-          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-edit'></i>
-        <% end %>
-        <%= link_to(mission_path(mission.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
-          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+    <div class="card-user">
+    </div>
+  
+
+    <div class="container attributes_container" >
+      <div class="participation-finish">
+        <div id="" style="overflow:scroll; height:100%; width:540px">
+          <% @missions.each do |mission| %>
+          <div class="card-product-dash-finish">
+            <div class="card-product-infos">
+              <div class="flex">
+                <h2><%= link_to mission.title, mission_path(mission)%></h2>
+                <span class="badge badge-category"> <%=mission.category %> </span>
+              </div>
+              <p><%= mission.description %></p>
+              <div class="d-flex">
+                <h2> </h2>
+                <h2><strong><%= mission.reward%>€</strong></h2>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
-
-<div class="my_participations mt-3">
-  <p><strong>Participations à effectuer :</strong></p>
-  <ul>
-    <% current_user.participations.each do |participation| %>
-      <li>
-        <%= link_to participation.mission.title, mission_path(participation.mission.id) %>
-        <%= link_to(mission_path(participation.mission.id)) do %>
-          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
-        <% end %>
-        <%= link_to(mission_participation_path(participation.mission.id, participation.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
-          <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
-        <% end %>
-      </li>
+<!-- <div class="my_participations mt-3">
+<p><strong>Participations à effectuer :</strong></p>
+<ul>
+  <% current_user.participations.each do |participation| %>
+  <li>
+    <%= link_to participation.mission.title, mission_path(participation.mission.id) %>
+    <%= link_to(mission_path(participation.mission.id)) do %>
+    <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
     <% end %>
-  </ul>
+    <%= link_to(mission_participation_path(participation.mission.id, participation.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+    <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
 </div>
-
+-->
 <%#= link_to 'Rechercher une mission', missions_path, class: "btn btn-primary" %>
 <%#= link_to 'Déposer une mission', new_mission_path, class: "btn btn-success" %>
-
 <!-- Ajouter l'historique... -->
-<h3 class="mt-5">Terminé</h3>
-<p><strong>Missions créees : ...</strong></p>
-<p class="mt-3"><strong>Participations : ...</strong></p>
-
 <p class="mb-5"></p>

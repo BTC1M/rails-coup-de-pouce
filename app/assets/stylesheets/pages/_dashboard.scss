@@ -10,3 +10,12 @@ border-bottom-left-radius: 16px;
 border-top-right-radius: 0px;
 border-top-left-radius: 0px;
 }
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
