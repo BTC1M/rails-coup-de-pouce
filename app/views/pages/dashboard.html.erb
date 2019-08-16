@@ -38,7 +38,18 @@
                   <h2><%= link_to mission.title, mission_path(mission)%></h2>
                   <span class="badge badge-category"> <font color="#eebe58"> <%=mission.category %> </font> </span>
                 </div>
-                <p><%= mission.description %></p>
+                <p>
+                  <%= mission.description %>
+                  <%= link_to(mission_path(mission.id)) do %>
+                  <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
+                  <% end %>
+                  <%= link_to(edit_mission_path(mission.id)) do %>
+                  <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-edit'></i>
+                  <% end %>
+                  <%= link_to(mission_path(mission.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+                  <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
+                  <% end %>
+                </p>
                 <div class="d-flex">
                   <h2> </h2>
                   <h2><strong><%= mission.reward%>€</strong></h2>
@@ -79,7 +90,15 @@
                     <h2><%= link_to participation.mission.title, mission_path(participation.mission.id) %></h2>
                     <span class="badge badge-category"> <%= participation.mission.category %> </span>
                   </div>
-                  <p><%= participation.mission.description %></p>
+                  <p>
+                    <%= participation.mission.description %>
+                    <%= link_to(mission_path(participation.mission.id)) do %>
+                    <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
+                    <% end %>
+                    <%= link_to(mission_participation_path(participation.mission.id, participation.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+                    <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
+                    <% end %>
+                  </p>
                   <div class="d-flex">
                     <h2> </h2>
                     <h2><strong><%= participation.mission.reward%>€</strong></h2>
