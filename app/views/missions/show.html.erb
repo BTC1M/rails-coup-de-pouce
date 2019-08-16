@@ -15,11 +15,6 @@
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"%>
           </div>
       </div>
-    <div class="form-ss text-center mt-2">
-      <% if current_user == nil %>
-        <%= render "devise/sessions/new" %>
-      <% end %>
-    </div>
 </div>
 
 
@@ -48,10 +43,11 @@
       </div>
       <% end %>
       <% @nombre.times do %>
-      <div class="card cards-participations mr-2 d-flex flex-column">
-        <div class="border-avatar mx-auto mt-4 p-1">
+      <div class="card cards-participations mr-2 d-flex flex-column" style="width: 18rem;">
+        <div class="border-avatar mx-auto mt-2 p-1">
           <%= image_tag "grey.jpg", class: "avatar-very-large text-center avatar-bordered", alt: "avatar-very-large", style: "width: 72px; height: 72px;" %>
         </div>
+        <p class="mx-auto">?</p>
       </div>
       <% end %>
     </div>
@@ -70,6 +66,7 @@
           <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
             <div class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;"></div>
           </div>
+
           <p class= "name_card text-center"><%= @mission.user.first_name%></p>
         </div>
         <div class="blabla d-flex flex-column">
