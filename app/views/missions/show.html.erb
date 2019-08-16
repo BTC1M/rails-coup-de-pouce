@@ -25,17 +25,20 @@
         <div class="card-body text-primary">
           <h5 class="card-title"><%= @mission.title %></h5>
           <p class="card-text">
-            <p><%= @mission.description %></p>
-            <p><%=@mission.place  %></p>
-            <p> Prix: <%=@mission.reward %>€</p>
-            <p> De <%=@mission.start_date.to_date %> à <%=@mission.end_date.to_date%></p>
+            <p class="text-dark"><%= @mission.description %></p>
+              <br>
+            <p><%=@mission.place%></p>
+              <br>
+            <p><strong><%=@mission.reward %> €</strong></p>
+              <br>
+            <p class="text-muted"> De <%=@mission.start_date.to_date %> à <%=@mission.end_date.to_date%></p>
           </p>
         </div>
       </div>
     </div>
     <div class="cards d-flex ">
       <% @mission.participations.each do |participation| %>
-      <div class="card cards-participations mr-2 d-flex flex-column" style="width: 18rem;">
+      <div class="card cards-participations d-flex flex-column" style="width: 18rem;">
         <div class="border-avatar mx-auto mt-2 p-1">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-very-large text-center avatar-bordered", alt: "avatar-very-large" %>
         </div>
@@ -43,7 +46,7 @@
       </div>
       <% end %>
       <% @nombre.times do %>
-      <div class="card cards-participations mr-2 d-flex flex-column" style="width: 18rem;">
+      <div class="card cards-participations d-flex flex-column" style="width: 18rem;">
         <div class="border-avatar mx-auto mt-2 p-1">
           <%= image_tag "grey.jpg", class: "avatar-very-large text-center avatar-bordered", alt: "avatar-very-large", style: "width: 72px; height: 72px;" %>
         </div>
@@ -62,15 +65,15 @@
     </div>
     <div class="profile_card my-2 p-2">
       <div class="d-flex">
-        <div class="profil d-flex flex-column">
+        <div class="profil d-flex flex-column mr-3">
           <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
             <div class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;"></div>
           </div>
 
           <p class= "name_card text-center"><%= @mission.user.first_name%></p>
         </div>
-        <div class="blabla d-flex flex-column">
-
+        <div class="blabla d-flex flex-column m-2">
+          <p class="text-dark"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo necessitatibus inventore quidem voluptas cumque, asperiores quod, quo facere sed a praesentium.</p>
         </div>
       </div>
     </div>
