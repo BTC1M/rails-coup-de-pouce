@@ -23,7 +23,7 @@
     <div class="card_show px-5 pt-1 mx-auto">
       <div class="card ml-3">
         <div class="card-body text-primary">
-          <h5 class="card-title"><%= @mission.title %></h5>
+          <h5 class="card-title"> <strong><%= @mission.title %></strong></h5>
           <p class="card-text">
             <p class="text-dark"><%= @mission.description %></p>
               <br>
@@ -68,10 +68,7 @@
   </div>
 
   <div class="moitier-droite d-flex align-items-end flex-column col-6 pb-4 pr-4">
-    <div class="name my-2">
-      <p class= "name-text text-center"><%= @mission.user.first_name%></p>
-    </div>
-    <div class="profile_card m-2 p-4">
+    <div class="profile_card mt-2 ml-2 mr-2 mb-5 p-4">
       <div class="d-flex">
         <div class="profil d-flex flex-column mr-3">
           <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
@@ -92,7 +89,7 @@
       </div>
     </div>
     <div
-        class="map-show my-2"
+        class="map-show"
         id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
