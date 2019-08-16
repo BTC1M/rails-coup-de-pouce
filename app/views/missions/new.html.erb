@@ -13,11 +13,11 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class='container-new-mission d-flex flex-column col-6' style='max-width:380px;margin:auto;'>
+  <div class='container-new-mission d-flex flex-column col-6' style='max-width:470px;margin:auto;'>
     <div class="back-new-mission">
     <p class="text-new-mission"> <strong><%= "Nouvelle mission"  %></strong></p>
   <div class="form-new-mission">
-    
+
     <div class="mb-3">
     <%= f.input :title,
             label: false,
