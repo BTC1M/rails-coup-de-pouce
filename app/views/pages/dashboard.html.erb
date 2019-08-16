@@ -145,17 +145,17 @@
 <!-- <div class="my_participations mt-3">
 <p><strong>Participations à effectuer :</strong></p>
 <ul>
-  <% current_user.participations.each do |participation| %>
+  <%# current_user.participations.each do |participation| %>
   <li>
-    <%= link_to participation.mission.title, mission_path(participation.mission.id) %>
-    <%= link_to(mission_path(participation.mission.id)) do %>
+    <%#= link_to participation.mission.title, mission_path(participation.mission.id) %>
+    <%#= link_to(mission_path(participation.mission.id)) do %>
     <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
-    <% end %>
-    <%= link_to(mission_participation_path(participation.mission.id, participation.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+    <%# end %>
+    <%#= link_to(mission_participation_path(participation.mission.id, participation.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
     <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
-    <% end %>
+    <%# end %>
   </li>
-  <% end %>
+  <%# end %>
 </ul>
 </div>
 -->
