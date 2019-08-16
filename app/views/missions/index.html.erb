@@ -29,7 +29,6 @@
 <div class="container attributes_container" >
   <div class='row'>
     <div class='col-4'>
-      <div id="" style="overflow:scroll; height:100%; width:540px">
       <% @missions.each do |mission| %>
         <div class="card-product ">
           <div class="card-product-infos">
@@ -46,7 +45,6 @@
         </div>
       <% end %>
     </div>
-    </div>
 
 
     <div class='col-8'>
@@ -57,6 +55,7 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
     </div>
+
   </div>
 </div>
 </div>
