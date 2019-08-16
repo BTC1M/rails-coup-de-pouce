@@ -65,57 +65,21 @@ User.create!(
 )
 
 Mission.create!(
-  title: 'Cherche quelqu\'un pour déménagement',
-  category: 'Demenagement',
-  description: 'Besoin de gros bras',
-  reward: 200,
-  place: '41 Rue Jobin, 13003 Marseille',
-  start_date: DateTime.now,
-  end_date: DateTime.tomorrow,
+  title: 'Donne moi 1 Bitcoin, je t\'en rend 2 en seulement 3 jours',
+  category: 'Business',
+  description: 'Mon tour de magie vous permettra de devenir riche très rapidement. Je double vos investissements. NO FAKE',
+  reward: 1000000,
+  place: '16 Rue Charles Plumier, 13002 Marseille',
+  start_date: DateTime.now + 2.day,
+  end_date: DateTime.now + 6.day,
   number_of_participants: 4,
-  user: User.first(3).last
+  user: User.find_by(first_name: 'Fwanck')
 )
 
 Mission.create!(
-  title: 'Mon ordinateur est en panne, HELP',
-  category: 'Equipements',
-  description: 'Wallah ca marche pas',
-  reward: 5,
-  place: '109 Avenue de la Jarre, 13009 Marseille',
-  start_date: DateTime.now - 5.day,
-  end_date: DateTime.now - 4.day,
-  number_of_participants: 2,
-  user: User.first(2).last
-)
-
-Mission.create!(
-  title: 'Cherche 2 personnes pour venir me faire a manger ce soir?',
-  category: 'Cuisine',
-  description: 'La flemme de cuisiner',
-  reward: 10,
-  place: '39 rue de rome, Marseille',
-  start_date: DateTime.now - 10.day,
-  end_date: DateTime.now - 9.day,
-  number_of_participants: 2,
-  user: User.first(1).last
-)
-
-Mission.create!(
-  title: 'Garde d\'un chaton',
+  title: 'Location de mon dumb baby',
   category: 'Animaux',
-  description: 'Il me faut quelqu\'un pour me garder mon chat 4 jours pendant que je pars en week end',
-  reward: 100,
-  place: '71 rue Sainte, Marseille',
-  start_date: DateTime.now - 2.day,
-  end_date: DateTime.now + 2.day,
-  number_of_participants: 2,
-  user: User.first(5).last
-)
-
-Mission.create!(
-  title: 'Location de mon bébé',
-  category: 'Animaux',
-  description: 'J\'en ai marre il fait que pleurer, il me faut quelqu\'un pour le garder pendant 1 semaine',
+  description: 'Si vous voulez le calmer, une ptite patate de forain et le tour est joué.',
   reward: 5,
   place: '231 Avenue Pierre Mendès France, Marseille',
   start_date: DateTime.now + 2.day,
@@ -133,7 +97,7 @@ Mission.create!(
   start_date: DateTime.now + 0.day,
   end_date: DateTime.now + 0.day,
   number_of_participants: 1,
-  user: User.find_by(first_name: 'Mavrock')
+  user: User.find_by(first_name: 'Jojokido')
 )
 
 Mission.create!(
@@ -146,6 +110,54 @@ Mission.create!(
   end_date: DateTime.now + 6.day,
   number_of_participants: 2,
   user: User.find_by(first_name: 'Michael')
+)
+
+Mission.create!(
+  title: 'Mon ordinateur est en panne, HELP',
+  category: 'Equipements',
+  description: 'Wallah ca marche pas',
+  reward: 5,
+  place: '109 Avenue de la Jarre, 13009 Marseille',
+  start_date: DateTime.now - 5.day,
+  end_date: DateTime.now - 4.day,
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Jojokido')
+)
+
+Mission.create!(
+  title: 'Cherche quelqu\'un pour déménagement',
+  category: 'Demenagement',
+  description: 'Besoin de gros bras',
+  reward: 200,
+  place: '41 Rue Jobin, 13003 Marseille',
+  start_date: DateTime.now,
+  end_date: DateTime.tomorrow,
+  number_of_participants: 4,
+  user: User.find_by(first_name: 'Theo')
+)
+
+Mission.create!(
+  title: 'Cherche 2 personnes pour venir me faire a manger ce soir?',
+  category: 'Cuisine',
+  description: 'La flemme de cuisiner, harbibi',
+  reward: 10,
+  place: '39 rue de rome, Marseille',
+  start_date: DateTime.now - 10.day,
+  end_date: DateTime.now - 9.day,
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Rem')
+)
+
+Mission.create!(
+  title: 'Garde d\'un chaton',
+  category: 'Animaux',
+  description: 'Il me faut quelqu\'un pour me garder mon chat 4 jours pendant que je pars en week end',
+  reward: 100,
+  place: '71 rue Sainte, Marseille',
+  start_date: DateTime.now - 2.day,
+  end_date: DateTime.now + 2.day,
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Rem')
 )
 
 Participation.create!(
@@ -168,5 +180,29 @@ Participation.create!(
   user: User.find_by(first_name: 'Fwanck')
 )
 
+Participation.create!(
+  mission: Mission.find_by(category: 'Business'),
+  user: User.find_by(first_name: 'Michael')
+)
+
+Participation.create!(
+  mission: Mission.find_by(category: 'Business'),
+  user: User.find_by(first_name: 'Theo')
+)
+
+Participation.create!(
+  mission: Mission.find_by(category: 'Cuisine'),
+  user: User.find_by(first_name: 'Michael')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Garde d\'un chaton'),
+  user: User.find_by(first_name: 'Mavrock')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Garde d\'un chaton'),
+  user: User.find_by(first_name: 'Mavrock')
+)
 
 puts 'Finished!'
