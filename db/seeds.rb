@@ -67,7 +67,7 @@ User.create!(
 Mission.create!(
   title: 'Donne moi 1 Bitcoin, je t\'en rend 2 en seulement 3 jours',
   category: 'Business',
-  description: 'Mon tour de magie vous permettra de devenir riche très rapidement. Je double vos investissements. NO FAKE',
+  description: 'Je double vos investissements. NO FAKE',
   reward: 1000000,
   place: '16 Rue Charles Plumier, 13002 Marseille',
   start_date: DateTime.now + 2.day,

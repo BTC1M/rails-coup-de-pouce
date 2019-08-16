@@ -30,7 +30,7 @@
       <h3 class="m-3"><strong>En cours</strong></h3>
       <div class="my_missions">
         <div class="container attributes_container" >
-          <div id="" style="overflow:scroll; height:100%; width:540px">
+          <div id="" style="height:100%; width:540px">
             <% current_user.missions.each do |mission| %>
             <div class="card-product-dash ">
               <div class="card-product-infos">
@@ -52,37 +52,37 @@
         <div class="my_missions">
           <p><strong>Missions créées :</strong></p>
           <ul>
-            <% current_user.missions.each do |mission| %>
+            <%# current_user.missions.each do |mission| %>
             <li>
-              <%= link_to mission.title, mission_path(mission.id) %>
-              <%= link_to(mission_path(mission.id)) do %>
+              <%#= link_to mission.title, mission_path(mission.id) %>
+              <%#= link_to(mission_path(mission.id)) do %>
               <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-eye'></i>
-              <% end %>
-              <%= link_to(edit_mission_path(mission.id)) do %>
+              <%# end %>
+              <%#= link_to(edit_mission_path(mission.id)) do %>
               <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-edit'></i>
-              <% end %>
-              <%= link_to(mission_path(mission.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+              <%# end %>
+              <%#= link_to(mission_path(mission.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
               <i style="margin-right: 0.5em; color: rgb(0,0,0);" class='far fa-trash-alt'></i>
-              <% end %>
+              <%# end %>
             </li>
-            <% end %>
+            <%# end %>
           </ul>
         </div> -->
         <div class="my_participations mt-3">
           <h3 class="m-3"><font color="black"><strong>Participations à effectuer :</strong></font></h3>
           <div class="container attributes_container" >
-            <div id="" style="overflow:scroll; height:100%; width:540px">
-              <% @missions.each do |mission| %>
+            <div id="" style="height:100%; width:540px">
+              <% current_user.participations.each do |participation| %>
               <div class="card-product-dash ">
                 <div class="card-product-infos">
                   <div class="flex">
-                    <h2><%= link_to mission.title, mission_path(mission)%></h2>
-                    <span class="badge badge-category"> <%=mission.category %> </span>
+                    <h2><%= link_to participation.mission.title, mission_path(participation.mission.id) %></h2>
+                    <span class="badge badge-category"> <%= participation.mission.category %> </span>
                   </div>
-                  <p><%= mission.description %></p>
+                  <p><%= participation.mission.description %></p>
                   <div class="d-flex">
                     <h2> </h2>
-                    <h2><strong><%= mission.reward%>€</strong></h2>
+                    <h2><strong><%= participation.mission.reward%>€</strong></h2>
                   </div>
                 </div>
               </div>
@@ -98,11 +98,11 @@
 
     <div class="card-user">
     </div>
-  
+
 
     <div class="container attributes_container" >
       <div class="participation-finish">
-        <div id="" style="overflow:scroll; height:100%; width:540px">
+        <div id="" style="height:100%; width:540px">
           <% @missions.each do |mission| %>
           <div class="card-product-dash-finish">
             <div class="card-product-infos">
