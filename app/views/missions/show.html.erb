@@ -15,11 +15,6 @@
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"%>
           </div>
       </div>
-    <div class="form-ss text-center mt-2">
-      <% if current_user == nil %>
-        <%= render "devise/sessions/new" %>
-      <% end %>
-    </div>
 </div>
 
 
@@ -30,50 +25,69 @@
         <div class="card-body text-primary">
           <h5 class="card-title"><%= @mission.title %></h5>
           <p class="card-text">
-            <p><%= @mission.description %></p>
-            <p><%=@mission.place  %></p>
-            <p> Prix: <%=@mission.reward %>€</p>
-            <p> De <%=@mission.start_date.to_date %> à <%=@mission.end_date.to_date%></p>
+            <p class="text-dark"><%= @mission.description %></p>
+              <br>
+            <p><%=@mission.place%></p>
+              <br>
+            <p><strong><%=@mission.reward %> €</strong></p>
+              <br>
+            <div class="d-flex justify-content-between">
+            <p class="text-muted"> De <%=@mission.start_date.to_date %> <%=@mission.end_date.to_date%> </p> <p class="text-dark"> <%= @mission.number_of_participants %> participants max</p>
+          </div>
           </p>
         </div>
       </div>
     </div>
     <div class="cards d-flex ">
+      <% condition = nil %>
+      <% part = nil %>
       <% @mission.participations.each do |participation| %>
-      <div class="card cards-participations mr-2 d-flex flex-column" style="width: 18rem;">
+      <div class="card cards-participations d-flex flex-column" style="width: 18rem;">
         <div class="border-avatar mx-auto mt-2 p-1">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-very-large text-center avatar-bordered", alt: "avatar-very-large" %>
         </div>
         <p class="mx-auto"><%= participation.user.first_name %></p>
+        <% participation.user.id == current_user.id ? condition = true : condition = false %>
+        <% part = participation if condition %>
       </div>
       <% end %>
       <% @nombre.times do %>
-      <div class="card cards-participations mr-2 d-flex flex-column">
-        <div class="border-avatar mx-auto mt-4 p-1">
+      <div class="card cards-participations d-flex flex-column" style="width: 18rem;">
+        <div class="border-avatar mx-auto mt-2 p-1">
           <%= image_tag "grey.jpg", class: "avatar-very-large text-center avatar-bordered", alt: "avatar-very-large", style: "width: 72px; height: 72px;" %>
         </div>
+        <p class="mx-auto">?</p>
       </div>
       <% end %>
     </div>
-    <%# if @nombre > 0 %>
+    <% if condition %>
+      <%= link_to "Se désister", mission_participation_path(part.mission.id, part.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn rejoindre_button mt-2 mx-auto p-0"%>
+    <% else %>
       <%= link_to "Rejoindre!", mission_participations_path(@mission), method: :create, class: "btn rejoindre_button mt-2 mx-auto p-0"%>
-    <%# end %>
+    <% end %>
   </div>
 
   <div class="moitier-droite d-flex align-items-end flex-column col-6 pb-4 pr-4">
     <div class="name my-2">
       <p class= "name-text text-center"><%= @mission.user.first_name%></p>
     </div>
-    <div class="profile_card my-2 p-2">
+    <div class="profile_card m-2 p-4">
       <div class="d-flex">
-        <div class="profil d-flex flex-column">
+        <div class="profil d-flex flex-column mr-3">
           <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
             <div class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;"></div>
           </div>
           <p class= "name_card text-center"><%= @mission.user.first_name%></p>
         </div>
-        <div class="blabla d-flex flex-column">
-
+        <div class="blabla d-flex flex-column mr-2 ml-2 mt-2">
+          <p class="text-dark"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, ipsam recusandae odit explicabo, cum veritatis ab enim doloribus ut soluta cupiditate eveniet nostrum praesentium unde doloremque in eius aliquid sunt!</p>
+          <div class="stars d-flex justify-content-end">
+            <%= image_tag "star(1).svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star(1).svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star(1).svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star.svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star.svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+          </div>
         </div>
       </div>
     </div>

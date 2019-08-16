@@ -6,23 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Seeding :'
+
+puts 'Destroying previous seeds...'
+
 Participation.destroy_all
 Mission.destroy_all
 User.destroy_all
 
+puts 'Creating new seeds...'
+
 User.create!(
-  first_name: 'Satoshi',
-  last_name: 'Nakamoto',
+  first_name: 'Mavrock',
+  last_name: 'Dumb',
   birthday: Date.current - 18.years,
-  email: 'satoshi@gmail.com',
+  email: 'mavrock@gmail.com',
   password: 'coucou'
 )
 
 User.create!(
-  first_name: 'Roakin',
-  last_name: 'Le_susu',
+  first_name: 'Jojokido',
+  last_name: 'Susu',
   birthday: Date.new(1991,2,3),
-  email: 'roakin@gmail.com',
+  email: 'jojokido@gmail.com',
   password: 'coucou'
 )
 
@@ -35,6 +41,14 @@ User.create!(
 )
 
 User.create!(
+  first_name: 'Fwanck',
+  last_name: 'The_king',
+  birthday: Date.new(1990,3,1),
+  email: 'admin@gmail.com',
+  password: 'coucou'
+)
+
+User.create!(
   first_name: 'Rem',
   last_name: 'Bgnvngbn',
   birthday: Date.new(1992,3,1),
@@ -43,23 +57,83 @@ User.create!(
 )
 
 User.create!(
-  first_name: 'Admin',
-  last_name: 'Cest_moi',
-  birthday: Date.new(1992,3,1),
-  email: 'admin@gmail.com',
+  first_name: 'Michael',
+  last_name: 'Boloss',
+  birthday: Date.new(1995,3,1),
+  email: 'michael@gmail.com',
   password: 'coucou'
 )
 
 Mission.create!(
-  title: 'Cherche quelqu\'un pour déménagement',
-  category: 'Adulte',
-  description: 'Besoin de gros bras',
-  reward: 200,
-  place: '41 Rue Jobin, 13003 Marseille',
-  start_date: DateTime.now,
-  end_date: DateTime.tomorrow,
+  title: 'Donne moi 1 Bitcoin, je t\'en rend 2 en seulement 3 jours',
+  category: 'Business',
+  description: 'Mon tour de magie vous permettra de devenir riche très rapidement. Je double vos investissements. NO FAKE',
+  reward: 1000000,
+  place: '16 Rue Charles Plumier, 13002 Marseille',
+  start_date: DateTime.now + 2.day,
+  end_date: DateTime.now + 6.day,
   number_of_participants: 4,
-  user: User.first(3).last
+  user: User.find_by(first_name: 'Fwanck')
+)
+
+Mission.create!(
+  title: 'Opération banane',
+  category: 'Brigade du style',
+  description: 'Enlever les bananes du Tshirt de Mathias.',
+  reward: 500,
+  place: '29 Boulevard Eugène Pierre, 13005 Marseille',
+  start_date: DateTime.now + 1.day,
+  end_date: DateTime.now + 1.day,
+  number_of_participants: 4,
+  user: User.find_by(first_name: 'Jojokido')
+)
+
+Mission.create!(
+  title: 'Opération swagage',
+  category: 'Brigade du style',
+  description: 'Acheter du style à Mavrock.',
+  reward: 400,
+  place: '28 Rue du Berceau, 13005 Marseille',
+  start_date: DateTime.now + 1.day,
+  end_date: DateTime.now + 1.day,
+  number_of_participants: 4,
+  user: User.find_by(first_name: 'Jojokido')
+)
+
+Mission.create!(
+  title: 'Location de mon dumb baby',
+  category: 'Animaux',
+  description: 'Si vous voulez le calmer, une ptite patate de forain et le tour est joué.',
+  reward: 5,
+  place: '231 Avenue Pierre Mendès France, Marseille',
+  start_date: DateTime.now + 2.day,
+  end_date: DateTime.now + 6.day,
+  number_of_participants: 1,
+  user: User.find_by(first_name: 'Mavrock')
+)
+
+Mission.create!(
+  title: 'Il me faut de l\'huile d\'olive',
+  category: 'Service',
+  description: 'J\'en ai besoin pour ma salade, qui va m\'en chercher? (Je paye 0€ car je suis un rat)',
+  reward: 0,
+  place: '167 Rue Paradis, 13006 Marseille',
+  start_date: DateTime.now + 0.day,
+  end_date: DateTime.now + 0.day,
+  number_of_participants: 1,
+  user: User.find_by(first_name: 'Jojokido')
+)
+
+Mission.create!(
+  title: 'Location bébé',
+  category: 'Animaux',
+  description: 'Il fait 10kg, il a 2 mois, et il aime les sardines',
+  reward: 100,
+  place: '30 Avenue Joseph Vidal, 13008 Marseille',
+  start_date: DateTime.now + 2.day,
+  end_date: DateTime.now + 6.day,
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Michael')
 )
 
 Mission.create!(
@@ -70,115 +144,119 @@ Mission.create!(
   place: '109 Avenue de la Jarre, 13009 Marseille',
   start_date: DateTime.now - 5.day,
   end_date: DateTime.now - 4.day,
-  number_of_participants: 1,
-  user: User.first(2).last
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Jojokido')
 )
 
 Mission.create!(
-  title: 'Quelqu\'un pour venir me faire a manger ce soir?',
+  title: 'Cherche quelqu\'un pour déménagement',
+  category: 'Demenagement',
+  description: 'Besoin de gros bras',
+  reward: 200,
+  place: '41 Rue Jobin, 13003 Marseille',
+  start_date: DateTime.now,
+  end_date: DateTime.tomorrow,
+  number_of_participants: 4,
+  user: User.find_by(first_name: 'Theo')
+)
+
+Mission.create!(
+  title: 'Cherche 2 personnes pour venir me faire a manger ce soir?',
   category: 'Cuisine',
-  description: 'La flemme de cuisiner',
+  description: 'La flemme de cuisiner, harbibi',
   reward: 10,
   place: '39 rue de rome, Marseille',
   start_date: DateTime.now - 10.day,
   end_date: DateTime.now - 9.day,
-  number_of_participants: 1,
-  user: User.first(1).last
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Rem')
 )
 
 Mission.create!(
   title: 'Garde d\'un chaton',
   category: 'Animaux',
-  description: 'Il me faut quelqu\'un pour me garder mon chat 1 semaine pendant que je pars en vacances',
+  description: 'Il me faut quelqu\'un pour me garder mon chat 4 jours pendant que je pars en week end',
   reward: 100,
   place: '71 rue Sainte, Marseille',
   start_date: DateTime.now - 2.day,
-  end_date: DateTime.now + 5.day,
-  number_of_participants: 1,
-  user: User.first(5).last
-)
-
-Mission.create!(
-  title: 'Location de mon bébé',
-  category: 'Animaux',
-  description: 'J\'en ai marre il fait que pleurer',
-  reward: 100,
-  place: '231 Avenue Pierre Mendès France, Marseille',
-  start_date: DateTime.now + 2.day,
-  end_date: DateTime.now + 6.day,
-  number_of_participants: 1,
-  user: User.first(4).last
+  end_date: DateTime.now + 2.day,
+  number_of_participants: 2,
+  user: User.find_by(first_name: 'Rem')
 )
 
 Participation.create!(
-  mission: Mission.first(2).last,
-  user: User.first(5).last
+  mission: Mission.find_by(title: 'Opération banane'),
+  user: User.find_by(first_name: 'Theo')
 )
 
 Participation.create!(
-  mission: Mission.first(2).last,
-  user: User.first(3).last
-)
-Participation.create!(
-  mission: Mission.first(2).last,
-  user: User.first(2).last
+  mission: Mission.find_by(title: 'Opération banane'),
+  user: User.find_by(first_name: 'Mavrock')
 )
 
 Participation.create!(
-  mission: Mission.first(1).last,
-  user: User.first(1).last
+  mission: Mission.find_by(title: 'Opération banane'),
+  user: User.find_by(first_name: 'Michael')
 )
 
 Participation.create!(
-  mission: Mission.first(1).last,
-  user: User.first(3).last
+  mission: Mission.find_by(title: 'Opération swagage'),
+  user: User.find_by(first_name: 'Theo')
 )
 
 Participation.create!(
-  mission: Mission.first(3).last,
-  user: User.first(2).last
+  mission: Mission.find_by(title: 'Opération swagage'),
+  user: User.find_by(first_name: 'Michael')
 )
 
 Participation.create!(
-  mission: Mission.first(3).last,
-  user: User.first(5).last
+  mission: Mission.find_by(title: 'Opération swagage'),
+  user: User.find_by(first_name: 'Rem')
 )
 
 Participation.create!(
-  mission: Mission.first(3).last,
-  user: User.first(4).last
+  mission: Mission.find_by(title: 'Location bébé'),
+  user: User.find_by(first_name: 'Fwanck')
 )
 
 Participation.create!(
-  mission: Mission.first(3).last,
-  user: User.first(3).last
-)
-
-
-Participation.create!(
-  mission: Mission.first(4).last,
-  user: User.first(3).last
+  mission: Mission.find_by(title: 'Cherche quelqu\'un pour déménagement'),
+  user: User.find_by(first_name: 'Michael')
 )
 
 Participation.create!(
-  mission: Mission.first(4).last,
-  user: User.first(2).last
-)
-
-
-Participation.create!(
-  mission: Mission.first(4).last,
-  user: User.first(1).last
+  mission: Mission.find_by(title: 'Cherche quelqu\'un pour déménagement'),
+  user: User.find_by(first_name: 'Jojokido')
 )
 
 Participation.create!(
-  mission: Mission.first(5).last,
-  user: User.first(4).last
+  mission: Mission.find_by(title: 'Mon ordinateur est en panne, HELP'),
+  user: User.find_by(first_name: 'Fwanck')
 )
 
 Participation.create!(
-  mission: Mission.first(5).last,
-  user: User.first(1).last
+  mission: Mission.find_by(category: 'Business'),
+  user: User.find_by(first_name: 'Michael')
+)
+
+Participation.create!(
+  mission: Mission.find_by(category: 'Business'),
+  user: User.find_by(first_name: 'Theo')
+)
+
+Participation.create!(
+  mission: Mission.find_by(category: 'Cuisine'),
+  user: User.find_by(first_name: 'Michael')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Garde d\'un chaton'),
+  user: User.find_by(first_name: 'Mavrock')
+)
+
+Participation.create!(
+  mission: Mission.find_by(title: 'Garde d\'un chaton'),
+  user: User.find_by(first_name: 'Mavrock')
 )
 
 puts 'Finished!'

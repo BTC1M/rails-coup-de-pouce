@@ -8,7 +8,7 @@ h1 {
 }
 
 .card_show{
-  width: 400px;
+  width: 600px;
 }
 
 p {
@@ -40,6 +40,17 @@ h5 {
   font-size: 18px;
   color: #FFFFFF;
   text-shadow: 3px 4px 7px rgba(0, 0, 0, 0.25);
+}
+
+.rejoindre_button:hover {
+  transition: 0.5s;
+  box-shadow: 15px 5px 4px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  font-size: 20px;
+  top: -13px;
+  left: 60px;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .name {
