@@ -27,7 +27,7 @@
 <div class="d-flex justify-content-around">
   <div class="row">
     <div class="col col-md-auto">
-      <h3 class="m-3"><strong>En cours</strong></h3>
+      <h3 class="m-3"><strong>En cours :</strong></h3>
       <div class="my_missions">
         <div class="container attributes_container" >
           <div id="" style="height:100%; width:540px">
@@ -121,21 +121,35 @@
     <div class="container attributes_container" >
       <div class="participation-finish">
         <div id="" style="height:100%; width:540px">
-          <% @missions.each do |mission| %>
+
           <div class="card-product-dash-finish">
             <div class="card-product-infos">
               <div class="flex">
-                <h2><%= link_to mission.title, mission_path(mission)%></h2>
-                <span class="badge badge-category"> <%=mission.category %> </span>
+                <h2>Organiser un combat de coq</h2>
+                <span class="badge badge-category">Service</span>
               </div>
-              <p><%= mission.description %></p>
+              <p>Dans les locaux du wagon marseille</p>
               <div class="d-flex">
                 <h2> </h2>
-                <h2><strong><%= mission.reward%>€</strong></h2>
+                <h2><strong>50 €</strong></h2>
               </div>
             </div>
           </div>
-          <% end %>
+
+          <div class="card-product-dash-finish">
+            <div class="card-product-infos">
+              <div class="flex">
+                <h2>Mettre du piment dans la salade de Mav</h2>
+                <span class="badge badge-category">Service</span>
+              </div>
+              <p>Ca lui apprendra a faire le fifou</p>
+              <div class="d-flex">
+                <h2> </h2>
+                <h2><strong>20 €</strong></h2>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
