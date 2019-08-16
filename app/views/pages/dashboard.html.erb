@@ -96,7 +96,25 @@
   <div class="w-100"></div>
   <div class="col">
 
-    <div class="card-user">
+    <div class="profile_card m-2 p-4">
+      <div class="d-flex">
+        <div class="profil d-flex flex-column mr-3">
+          <div class="border_avatar_nav p-1 align-items-center dropleft" style="height: 80px">
+            <div class="avatar-very-large avatar-bordered dropdown-toggle" style="background-image: url(https://kitt.lewagon.com/placeholder/users/arthur-littm);width: 72px;height: 72px;background-size: cover;"></div>
+          </div>
+          <p class= "name_card text-center"><%= current_user.first_name%></p>
+        </div>
+        <div class="blabla d-flex flex-column mr-2 ml-2 mt-2">
+          <p class="text-dark"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, ipsam recusandae odit explicabo, cum veritatis ab enim doloribus ut soluta cupiditate eveniet nostrum praesentium unde doloremque in eius aliquid sunt!</p>
+          <div class="stars d-flex justify-content-end">
+            <%= image_tag "star(1).svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star(1).svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star(1).svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star.svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+            <%= image_tag "star.svg", class: "ml-2", style: "width: 15px; height: 15px;" %>
+          </div>
+        </div>
+      </div>
     </div>
 
 
