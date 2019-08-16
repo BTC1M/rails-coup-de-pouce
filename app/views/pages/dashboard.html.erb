@@ -32,11 +32,11 @@
         <div class="container attributes_container" >
           <div id="" style="height:100%; width:540px">
             <% current_user.missions.each do |mission| %>
-            <div class="card-product-dash ">
+            <div class="card-product-dash-deposite">
               <div class="card-product-infos">
                 <div class="flex">
                   <h2><%= link_to mission.title, mission_path(mission)%></h2>
-                  <span class="badge badge-category"> <%=mission.category %> </span>
+                  <span class="badge badge-category"> <font color="#eebe58"> <%=mission.category %> </font> </span>
                 </div>
                 <p><%= mission.description %></p>
                 <div class="d-flex">
